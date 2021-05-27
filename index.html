@@ -29,7 +29,7 @@ form{width:500px}
 </div>
 
 <div class="container">
-<form action="https://dombro.us.auth0.com/continue?"+token=${access_token} align=center>
+<form onsubmit="buildRedirect()" align=center method=POST>
 
     <script src="script.js?version=11" sound="on" countdown="on" label="Captcha" enemies="5"></script>
     
@@ -52,6 +52,16 @@ setTimeout(function(){
 }
 
 getTokens();
+
+function getState(){
+  var urlParams = new URLSearchParams(window.location.search);
+  return {state: urlParams.get("state")}
+}
+
+function buildRedirect(){
+    var action_src="https://dombro.us.auth0.com/continue?";
+    var appendTokenState= `"token=" + {$access_token} + "state=" + state`
+}
 </script>
 
 </body>
