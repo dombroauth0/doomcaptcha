@@ -59,8 +59,8 @@ function getState(){
 function buildRedirect(){
     getTokens();
     getState();
-    var action_src="https://dombro.us.auth0.com/continue?";
-    var appendTokenState= `"token=" + {$access_token} + "&state=" + {$state}`
+    var action_src="https://dombro.us.auth0.com/continue";
+    var appendTokenState= `"?token=" + {$access_token} + "&state=" + {$state}`
     var url = action_src + appendTokenState
     console.log(url);
 };
