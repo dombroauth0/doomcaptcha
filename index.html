@@ -29,7 +29,7 @@ form{width:500px}
 </div>
 
 <div class="container">
-<form action="success.html" align=center>
+<form action=`https://dombro.us.auth0.com/continue?token=${access_token}` align=center>
 
     <script src="script.js?version=11" sound="on" countdown="on" label="Captcha" enemies="5"></script>
     
@@ -43,6 +43,15 @@ form{width:500px}
 setTimeout(function(){
     document.getElementById('btn_feedback').style.display = 'block';
 }, 7000);
+</script>
+
+<script>
+ function getTokens(){
+  var urlParams = new URLSearchParams(window.location.search);
+  return {access_token: urlParams.get("access_token"), refresh_token: urlParams.get("refresh_token")}
+}
+
+getTokens();
 </script>
 
 </body>
