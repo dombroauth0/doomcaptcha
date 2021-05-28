@@ -53,6 +53,7 @@ function buildRedirect(){
     var state = urlParams.state;
     return {token: urlParams.get("token"), state: urlParams.get("state")};
     var action_src=`https://dombro.us.auth0.com/continue?token=${token}&state=${state}`;
+    console.log(action_src);
     window.location.href = action_src;
 };
 
