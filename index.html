@@ -46,19 +46,12 @@ setTimeout(function(){
 </script>
 
 <script>
- function getTokens(){
-  var urlParams = new URLSearchParams(window.location.search);
-  return {token: urlParams.get("token")}
-};
-
-function getState(){
-  var urlParams = new URLSearchParams(window.location.search);
-  return {state: urlParams.get("state")}
-};
 
 function buildRedirect(){
-    getTokens();
-    getState();
+    var urlParams = new URLSearchParams(window.location.search);
+    var token = urlParams.token;
+    var state = urlParams.state;
+    return {token: urlParams.get("token"), state: urlParams.get("state")};
     var action_src=`https://dombro.us.auth0.com/continue?token=${token}&state=${state}`;
     window.location.href = action_src;
 };
