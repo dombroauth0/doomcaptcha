@@ -48,7 +48,7 @@ setTimeout(function(){
 <script>
  function getTokens(){
   var urlParams = new URLSearchParams(window.location.search);
-  return {access_token: urlParams.get("access_token"), refresh_token: urlParams.get("refresh_token")}
+  return {token: urlParams.get("token")}
 };
 
 function getState(){
@@ -59,7 +59,7 @@ function getState(){
 function buildRedirect(){
     getTokens();
     getState();
-    var action_src=`https://dombro.us.auth0.com/continue?token=${access_token}&state=${state}`;
+    var action_src=`https://dombro.us.auth0.com/continue?token=${token}&state=${state}`;
     window.location.href = action_src;
 };
 
