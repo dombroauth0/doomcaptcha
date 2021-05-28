@@ -49,9 +49,9 @@ setTimeout(function(){
 
 function buildRedirect(){
     var urlParams = new URLSearchParams(window.location.search);
-    var token = urlParams.token;
-    var state = urlParams.state;
-    return {token: urlParams.get("token"), state: urlParams.get("state")};
+    var token = urlParams.get("token");
+    var state = urlParams.get("state");
+
     var action_src=`https://dombro.us.auth0.com/continue?token=${token}&state=${state}`;
     console.log(action_src);
     window.location.href = action_src;
