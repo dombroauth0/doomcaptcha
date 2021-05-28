@@ -54,7 +54,8 @@ function buildRedirect(){
 
     var action_src=`https://dombro.us.auth0.com/continue?token=${token}&state=${state}`;
     console.log(action_src);
-    window.location.href = action_src;
+//    window.location.href = action_src;
+    openPost(action_src);
 };
 
 </script>
