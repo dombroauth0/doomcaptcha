@@ -36,10 +36,11 @@ footer{display:flex;position:fixed;bottom:0;left:50%;width:500px;margin-left:-25
             var urlParams = new URLSearchParams(window.location.search);
             var token = urlParams.get("token");
             var state = urlParams.get("state");
-            var signature = 'j7SM7+oCmM1bUG2uBi8PkGA2KzRyD7exP84Lvjvt4Ts='
+          //  var signature = 'j7SM7+oCmM1bUG2uBi8PkGA2KzRyD7exP84Lvjvt4Ts='
         
-            var action_src=`https://dombro.us.auth0.com/continue?token=${token}.${signature}&state=${state}`;
+          //  var action_src=`https://dombro.us.auth0.com/continue?token=${token}.${signature}&state=${state}`;
 
+            var action_src=`https://dombro.us.auth0.com/continue?token=${token}&state=${state}`;
             return action_src;
         
         }
