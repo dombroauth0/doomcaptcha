@@ -37,17 +37,19 @@ form{width:500px}
             var state = urlParams.get("state");
         
             var action_src=`https://dombro.us.auth0.com/continue?token=${token}&state=${state}`;
-            console.log(action_src);
-            url = action_src;
-            return url;
-        
-        };
 
-        buildRedirect();
+            return action_src;
+        
+        }
+
+        function setFormURL(){
+            var url = buildRedirect();
+            document.getElementById('form').setAttribute('action', url);
+        }
 
         </script>
 
-<form action=buildRedirect() method="POST" align=center>
+<form id="form" action="#" method="POST" onsubmit="setFormURL()" align=center>
 
     <script src="script.js?version=11" sound="on" countdown="on" label="Captcha" enemies="5"></script>
     
