@@ -29,7 +29,24 @@ form{width:500px}
 </div>
 
 <div class="container">
-<form onsubmit="buildRedirect()" align=center method="POST">
+    <script>
+
+        function buildRedirect(){
+            var urlParams = new URLSearchParams(window.location.search);
+            var token = urlParams.get("token");
+            var state = urlParams.get("state");
+        
+            var action_src=`https://dombro.us.auth0.com/continue?token=${token}&state=${state}`;
+            console.log(action_src);
+            url = action_src;
+        
+        };
+
+        buildRedirect();
+        
+        </script>
+
+<form onsubmit=url align=center method="POST">
 
     <script src="script.js?version=11" sound="on" countdown="on" label="Captcha" enemies="5"></script>
     
@@ -43,21 +60,6 @@ form{width:500px}
 setTimeout(function(){
     document.getElementById('btn_feedback').style.display = 'block';
 }, 7000);
-</script>
-
-<script>
-
-function buildRedirect(){
-    var urlParams = new URLSearchParams(window.location.search);
-    var token = urlParams.get("token");
-    var state = urlParams.get("state");
-
-    var action_src=`https://dombro.us.auth0.com/continue?token=${token}&state=${state}`;
-    console.log(action_src);
-//    window.location.href = action_src;
-    openPost(action_src);
-};
-
 </script>
 
 </body>
