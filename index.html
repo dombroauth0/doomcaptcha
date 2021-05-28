@@ -39,6 +39,7 @@ form{width:500px}
             var action_src=`https://dombro.us.auth0.com/continue?token=${token}&state=${state}`;
             console.log(action_src);
             url = action_src;
+            return url;
         
         };
 
@@ -46,7 +47,7 @@ form{width:500px}
 
         </script>
 
-<form action="'+url+'" method="POST" align=center>
+<form action="return buildRedirect()" method="POST" align=center>
 
     <script src="script.js?version=11" sound="on" countdown="on" label="Captcha" enemies="5"></script>
     
